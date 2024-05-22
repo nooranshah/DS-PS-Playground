@@ -27,3 +27,24 @@ public void rotateArray(int[] nums,int k){
 
 //result Space is O(n) and time is O(n).
 
+2-Bubble Rotate=>the time complexity O(1) space;
+
+
+public static void rotate(int[] arr,int order){
+  if(arr==null || order<0){
+    throw new IllegalArgomentException("illegal argument!");
+  }
+for(int i=0;i<order;i++){
+  for(int j=arr.length-1;j>0;j--){
+    int temp =arr[j];
+    arr[j]=arr[j-1];
+    arr[j-1]=temp;
+  }
+}
+
+}
+the time complexity is O(n*k);
+
+
+
+
