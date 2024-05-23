@@ -43,7 +43,55 @@ for(int i=0;i<order;i++){
 }
 
 }
-the time complexity is O(n*k);
+//the time complexity is O(n*k);
+
+
+3.solution:Reversal
+this solution is the best solution for every problem
+we can do in O(1) space and in O(n) time 
+
+int[] arr = [1,2,3,4,5,6];
+int order =2;
+
+this problem solved with four steps:
+ 1.Dividethearraytwoparts:1,2,3,4and 5,6
+ 2.Rotatefirstpart:4,3,2,1,5,6
+ 3.Rotatesecondpart:4,3,2,1,6,5
+ 4.Rotatethewholearray:5,6,1,2,3,4
+
+public static void rotate(int[] arr,int order=2){
+  order=order % arr.length;
+
+if(arr==null || order <0){
+    throw new IllegalArgumentException("Illegal argument!");
+}
+
+
+//length first part
+int a  = arr.length-orders;
+
+
+reverse(arr,0,a-1);
+reverse(arr,a,arr.length-1);
+reverse(arr,0,arr.length-1);
+  
+}
+
+public static void reverse(int[] arr,int left,int right){
+  if(arr==null || arr.length==1){
+    return;
+  }
+while(left<right){
+  int temp =arr[left];
+  arr[left]=ar[right];
+  arr[right]=temp;
+  left++;
+  right--;
+}
+}
+
+
+
 
 
 
