@@ -1,0 +1,53 @@
+Problem:
+
+ Implement pow(x, n).
+ This is a great example to illustrate how to solve a problem during a technical in
+terview. The first and second solution exceeds time limit; the third and fourth are
+ accepted.
+
+This problem is solved with tow way:
+
+1.Naive Method:
+
+First of all, assuming n is not negative, to calculate x to the power of n, we can simply
+ multiply x n times, i.e., x * x * ... * x. The time complexity is O(n). The implementation
+ is as simple as:
+
+public class solution {
+
+  public double pow(double x,int n){
+    if(x==0) return 0;
+    if(n==1) return 1;
+    doble result =1;
+    for(int i=0;i<n;i++){
+        result =result*x;
+    }
+return result;
+  }
+}
+
+2.Recursive Method
+
+Naturally, we next may think how to do it in O(logn). We have a relation that xˆ n = xˆ (n/2) * xˆ (n/2) * xˆ (n).
+
+
+public static double pow(double n,int n){
+    if(n==0) return 0;
+    if(x==1) return 1;
+
+int half =n/2;
+int remainder = n%2;
+
+
+if(n % 2 ==1 && x < 0 && n < 0)
+ return  -1/(pow(-x, half) * pow(-x, half) * pow(-x, remainder));
+else if (n < 0)
+ return 1/(pow(x,-half) * pow(x,-half) * pow(x,-remainder));
+else
+ return (pow(x, half) * pow(x, half) * pow(x, remainder));
+
+}
+
+//Time complexity is O(logn)
+
+
